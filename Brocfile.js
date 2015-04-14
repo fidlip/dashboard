@@ -11,6 +11,9 @@ var app = new EmberApp({
     },
     sassOptions: {
       ext: "sass"
+    },
+    "ember-cli-jquery-ui": {
+      theme: 'sunny'
     }
   }
 );
@@ -29,5 +32,6 @@ var app = new EmberApp({
 // along with the exports of each module as its value.
 
 //app.import('bower_components/moment/min/moment-with-locales.js');
+//app.import('bower_components/jquery-ui/ui/sortable.js');
 
 module.exports = app.toTree();

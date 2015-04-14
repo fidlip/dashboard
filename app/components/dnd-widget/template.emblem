@@ -1,0 +1,7 @@
+.dnd-widget-header
+  =title
+  span.ui-icon.ui-icon-minusthick.dnd-widget-toggle
+
+.dnd-widget-content
+  =yield
+  |Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam placerat mi a sapien pulvinar interdum.
