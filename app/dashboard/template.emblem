@@ -1,4 +1,5 @@
-dnd-pane
+
+dnd-pane#main-pane connectedWith="#stack-pane"
   dnd-widget title="Widget 1"
   dnd-widget title="Widget 2"
   dnd-widget title="Widget 3"
@@ -10,3 +11,16 @@ dnd-pane
   dnd-widget title="Widget 9"
   dnd-widget title="Widget 10"
   dnd-widget title="Widget 11"
+
+widget-stack#stack-pane connectedWith="#main-pane"
+  dnd-widget title="Widget 21"
+  dnd-widget title="Widget 22"
+  dnd-widget title="Widget 23"
+  dnd-widget title="Widget 24"
+  dnd-widget title="Widget 25"
+  dnd-widget title="Widget 26"
+  dnd-widget title="Widget 27"
+  dnd-widget title="Widget 28"
+  dnd-widget title="Widget 29"
+  dnd-widget title="Widget 30"
+  dnd-widget title="Widget 31"

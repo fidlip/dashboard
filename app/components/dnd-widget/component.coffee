@@ -7,8 +7,9 @@ Component = Ember.Component.extend
     @_super()
     @on "didInsertElement", ->
       @$(".dnd-widget-toggle").click =>
-        @$(".dnd-widget-toggle").toggleClass("ui-icon-minusthick ui-icon-plusthick")
-        @$(".dnd-widget-content").toggle()
+        @removeFromParent()
+        #@$(".dnd-widget-toggle").toggleClass("ui-icon-minusthick ui-icon-plusthick")
+        #@$(".dnd-widget-content").toggle()
 
 
 

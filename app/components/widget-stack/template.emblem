@@ -1,0 +1,9 @@
+.content
+  =yield
+
+toggle-button action="toggleCollapsed"
+  if collapsed
+    |&lt;&lt;
+  else
+    |&gt;&gt;
+
