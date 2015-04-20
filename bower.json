@@ -12,6 +12,7 @@
     "ember-qunit": "^0.2.8",
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
-    "jquery-ui": "^1.11.1"
+    "jquery-ui": "^1.11.1",
+    "atmosphere.js": "~2.2.7"
   }
 }

@@ -33,5 +33,6 @@ var app = new EmberApp({
 
 //app.import('bower_components/moment/min/moment-with-locales.js');
 //app.import('bower_components/jquery-ui/ui/sortable.js');
+app.import('bower_components/atmosphere.js/atmosphere.js');
 
 module.exports = app.toTree();

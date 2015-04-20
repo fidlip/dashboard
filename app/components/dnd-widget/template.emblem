@@ -4,4 +4,3 @@
 
 .dnd-widget-content
   =yield
-  |Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam placerat mi a sapien pulvinar interdum.

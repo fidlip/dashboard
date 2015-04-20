@@ -1,26 +1,9 @@
-
 dnd-pane#main-pane connectedWith="#stack-pane"
-  dnd-widget title="Widget 1"
-  dnd-widget title="Widget 2"
-  dnd-widget title="Widget 3"
-  dnd-widget title="Widget 4"
-  dnd-widget title="Widget 5"
-  dnd-widget title="Widget 6"
-  dnd-widget title="Widget 7"
-  dnd-widget title="Widget 8"
-  dnd-widget title="Widget 9"
-  dnd-widget title="Widget 10"
-  dnd-widget title="Widget 11"
+  ovoce-widget data=model.general
+  ovoce-widget data=model.jablka
+  ovoce-widget data=model.hrusky
 
 widget-stack#stack-pane connectedWith="#main-pane"
-  dnd-widget title="Widget 21"
-  dnd-widget title="Widget 22"
-  dnd-widget title="Widget 23"
-  dnd-widget title="Widget 24"
-  dnd-widget title="Widget 25"
-  dnd-widget title="Widget 26"
-  dnd-widget title="Widget 27"
-  dnd-widget title="Widget 28"
-  dnd-widget title="Widget 29"
-  dnd-widget title="Widget 30"
-  dnd-widget title="Widget 31"
+  ovoce-widget data=model.general
+  ovoce-widget data=model.jablka
+  ovoce-widget data=model.hrusky
