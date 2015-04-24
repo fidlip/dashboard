@@ -7,7 +7,7 @@ Route = Ember.Route.extend
     logged: false
 
     model: ->
-      []
+      {jabka: @store.find("jabka"), hrusky: @store.find("hrusky")}
 #      return @store.findAll("message")
 
 

@@ -1,7 +1,7 @@
 `import Ember from 'ember';`
 
 Component = Ember.Component.extend
-  classNames: ["ovoce-widget"]
+  classNames: ["test-widget"]
 
 
 

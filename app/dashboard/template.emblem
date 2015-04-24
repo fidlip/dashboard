@@ -1,9 +1,11 @@
 dnd-pane#main-pane connectedWith="#stack-pane"
-  ovoce-widget data=model.general
-  ovoce-widget data=model.jablka
-  ovoce-widget data=model.hrusky
+  each jabko in model.jabka
+    test-widget data=jabko
+  each hruska in model.hrusky
+    test-widget data=hruska
 
 widget-stack#stack-pane connectedWith="#main-pane"
-  ovoce-widget data=model.general
-  ovoce-widget data=model.jablka
-  ovoce-widget data=model.hrusky
+  each jabko in model.jabka
+    test-widget data=jabko
+  each hruska in model.hrusky
+    test-widget data=hruska
