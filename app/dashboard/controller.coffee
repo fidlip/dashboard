@@ -1,50 +1,48 @@
-`import Ember from 'ember';`
+`
+  import Ember from 'ember';
+  import config from 'dashboard/config/environment'
+`
 
 Controller = Ember.Controller.extend
+
   init: ->
     @_super()
 
-    request =
-      url: "WS://localhost:8080/dashboard/atm/feed/user3"
-      contentType: "application/json"
-      logLevel: 'debug'
-      transport: 'websocket'
-      fallbackTransport: 'long-polling'
-      onOpen: (response)=>
-        console.info('SocketConnected:', response)
+    request = Ember.$.extend {}, config.atmosphere,
+      url: config.atmosphere.url + "user3"
 
-      onMessage: (response)=>
-        @parseMessage(response.responseBody)
-
-      onError: (response)=>
-        console.error("SocketError:", response)
-
-      onClose: (response)=>
-        console.info("SocketClosed:", response)
-
+      onOpen: @onOpen.bind(@)
+      onMessage: @onMessage.bind(@)
+      onError: @onError.bind(@)
+      onClose: @onClose.bind(@)
 
     subSocket = atmosphere.subscribe(request)
 
+  onOpen: (response)->
+    console.info('SocketConnected:', response)
 
-  parseMessage: (message)->
+  onMessage: (response)->
+    message = response.responseBody
     try
-      json = atmosphere.util.parseJSON(message.substring(3))
-      if json
-        json.jabka && @actualizeData("jabka", json.jabka)
-        json.hrusky && @actualizeData("hrusky", json.hrusky)
-
-        @store.find("jabka").then (jabka)=>
-          @set("model.jabka", jabka)
-        @store.find("hrusky").then (hrusky)=>
-          @set("model.hrusky", hrusky)
-
+      console.info("message =", message)
+      json = atmosphere.util.parseJSON(message)
     catch e
-      console.error(e)
+      console.error("Parse error:", e)
       return
 
-  actualizeData: (model, data)->
-    @store.findById(model, 0).then (item)->
-      item.setProperties(data)
+    try
+      console.info("json =", json)
+      if json
+        if json.depot
+          @store.push("depot", json.depot)
+    catch e
+      console.error("Parse error:", e)
+      return
 
+  onError: (response)->
+    console.error("SocketError:", response)
+
+  onClose: (response)->
+    console.warn("SocketClosed:", response)
 
 `export default Controller;`

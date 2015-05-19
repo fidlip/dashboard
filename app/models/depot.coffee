@@ -3,12 +3,11 @@
 `
 
 Model = DS.Model.extend
-  hrusky: DS.attr "string"
+  id: DS.attr "string"
+  countOfPackets: DS.attr "number"
 
 Model.reopenClass
   FIXTURES: [
-    id: 0
-    hrusky: "Waiting for data ..."
   ]
 
 `export default Model;`

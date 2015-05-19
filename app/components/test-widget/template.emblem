@@ -1,11 +1,6 @@
-if data.jabka
-  dnd-widget title="Jabka"
-      =data.jabka
+if data.countOfPackets
+  dnd-widget title="Count of packets"
+      =data.countOfPackets
 else
-  if data.hrusky
-    dnd-widget title="Hrusky"
-        =data.hrusky
-
-  else
-    dnd-widget title="Waiting for data ..."
+  dnd-widget title="Waiting for data ..."
 

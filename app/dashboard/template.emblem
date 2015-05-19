@@ -1,11 +1,9 @@
-dnd-pane#main-pane connectedWith="#stack-pane"
-  each jabko in model.jabka
-    test-widget data=jabko
-  each hruska in model.hrusky
-    test-widget data=hruska
+// dnd-pane#main-pane connectedWith="#stack-pane"
+  // each jabko in model.jabka
+  //   test-widget data=jabko
+  // each hruska in model.hrusky
+  //   test-widget data=hruska
 
 widget-stack#stack-pane connectedWith="#main-pane"
-  each jabko in model.jabka
-    test-widget data=jabko
-  each hruska in model.hrusky
-    test-widget data=hruska
+  each depot in model.depot
+    test-widget data=depot
