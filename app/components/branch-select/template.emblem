@@ -1,0 +1,11 @@
+label for="branch"
+  |Branch:
+select#branch
+  each branch in branches
+    option value=branch.id
+      =branch.descr
+
+button{{action "addBranch"}}
+  |Add
+
+=yield

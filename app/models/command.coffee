@@ -3,7 +3,8 @@
 `
 
 Model = DS.Model.extend
-  descr: DS.attr "string"
+  command: DS.attr "string"
+  user: DS.attr "string"
 
 
 `export default Model;`

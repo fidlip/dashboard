@@ -1,9 +1,11 @@
-`import DS from 'ember-data'`
+`
+  import DS from 'ember-data';
+  import config from 'dashboard/config/environment';
+`
 
-#ApplicationAdapter = DS.RESTAdapter.extend
-#  host: "http://private-1ea4c-calendar8.apiary-mock.com"
-#  namespace: "calendar8/api/v1"
+Adapter = DS.RESTAdapter.extend
+  host: config.rest.host
+  namespace: config.rest.namespace
 
-ApplicationAdapter = DS.FixtureAdapter
 
-`export default ApplicationAdapter`
+`export default Adapter`

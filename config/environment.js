@@ -21,10 +21,13 @@ module.exports = function(environment) {
       'default-src': "'self'",
       'script-src': "'self'",
       'font-src': "'self'",
-      'connect-src': "'self' ws://192.168.148.110/dashboard/",
+      'connect-src': "'self' ws://192.168.148.110/dashboard/ http://192.168.148.110/dashboard/",
       'img-src': "'self'",
       'style-src': "'self'",
       'frame-src': "'self'"
+    },
+    rest: {
+      namespace: "dashboard/app"
     },
     atmosphere: {
       transport: 'websocket',
@@ -43,6 +46,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.rest.host = "http://192.168.148.110";
+
     ENV.atmosphere.url = "http://192.168.148.110/dashboard/atm/feed/";
     ENV.atmosphere.logLevel = "debug";
 
@@ -62,8 +67,11 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.baseURL = "/dashboard/";
+    ENV.rest.host = "localhost:8080";
     ENV.atmosphere.url = "/dashboard/atm/feed/";
   }
+
+  ENV.rest.url = ENV.rest.host + "/" + ENV.rest.namespace;
 
   return ENV;
 };

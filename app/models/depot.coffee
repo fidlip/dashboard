@@ -3,11 +3,14 @@
 `
 
 Model = DS.Model.extend
-  id: DS.attr "string"
   countOfPackets: DS.attr "number"
 
-Model.reopenClass
-  FIXTURES: [
-  ]
+  branch: DS.belongsTo "branch", { async: true }
+
+
+#Model.reopenClass
+#  FIXTURES: [
+#    { id: "zilina", branch: "zilina", countOfPackets: 159 }
+#  ]
 
 `export default Model;`

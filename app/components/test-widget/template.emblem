@@ -1,5 +1,8 @@
 if data.countOfPackets
   dnd-widget title="Count of packets"
+    div
+      =data.branch.descr
+    div
       =data.countOfPackets
 else
   dnd-widget title="Waiting for data ..."
