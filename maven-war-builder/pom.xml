@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<prerequisites>
+		<maven>2.2.1</maven>
+	</prerequisites>
+
+	<parent>
+		<groupId>cz.datasys.rls</groupId>
+		<artifactId>rlssite</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../../rlssite/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>dashboard-ui</artifactId>
+	<packaging>war</packaging>
+
+	<name>RLS Dashboard UI</name>
+
+	<properties>
+		<!-- war name, for example: ABC_0.0.1 -->
+		<warName>${project.build.finalName}-${project.version}</warName>
+		<!-- Staticky pomenovany war dir. Referuje na to ant, gwt, atd... ("target/ABC") -->
+		<webappDir>${project.build.directory}/${project.build.finalName}</webappDir>
+		<!-- nexus repositories and deployment -->
+		<repo.location>http://nexus.all.local:8081/nexus/content/repositories/rls</repo.location>
+		
+		<!-- pro vyvoj v eclipse - "context root" aplikace -->
+		<m2eclipse.wtp.contextRoot>/dashboard</m2eclipse.wtp.contextRoot>
+	</properties>
+
+	<!-- define scm, mandatory for release/buildnumber plugin -->
+	<scm>
+		<connection>scm:svn:${svn.apps.location}/dashboard-ui</connection>
+		<developerConnection>scm:svn:${svn.apps.location}/dashboard-ui</developerConnection>
+	</scm>
+
+	<build>
+		<directory>target</directory>
+		
+		<finalName>${project.artifactId}</finalName>
+		
+		<plugins>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<id>default-war</id>
+						<phase>package</phase>
+						<goals>
+							<goal>war</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<webappDirectory>${webappDir}</webappDirectory>
+					<warName>${warName}</warName>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Implementation-Vendor-WWW>${project.organization.url}</Implementation-Vendor-WWW>
+							<Build-Timestamp>${timestamp}</Build-Timestamp>
+							
+							<!-- zavislost na buildnumber-maven-plugin -->
+							<Build-SVN-Revision>${buildNumber}</Build-SVN-Revision>
+							<Build-SVN-Branch>${scmBranch}</Build-SVN-Branch>
+							<Build-SVN-Path>${project.scm.connection}</Build-SVN-Path>
+							
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			
+		</plugins>
+	</build>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-servlet-api</artifactId>
+			<version>8.0.21</version>
+			<scope>provided</scope>
+		</dependency>
+		
+	</dependencies>
+
+</project>
