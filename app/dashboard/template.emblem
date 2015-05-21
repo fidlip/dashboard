@@ -1,4 +1,7 @@
-branch-select branches=model.branches addBranch="addBranch"
+span
+  branch-select branches=model.branches addBranch="addBranch"
+  a href="http://192.168.148.110/logis-simulator/userTest" target="_blank"
+    |Run data simulation
 
 dnd-pane#main-pane connectedWith="#stack-pane"
   each depot in model.depot

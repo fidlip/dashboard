@@ -3,9 +3,9 @@
 `
 
 Model = DS.Model.extend
-  countOfPackets: DS.attr "number"
+  countOfPackets: DS.attr "string"
 
-  branch: DS.belongsTo "branch", { async: true }
+  branch: DS.belongsTo "branch"
 
 
 #Model.reopenClass
